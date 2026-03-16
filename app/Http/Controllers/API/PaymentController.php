@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\PaymentOrder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use App\Models\PaymentTransaction;
+use App\Events\PaymentTransactionCreated;
 
 class PaymentController extends Controller
 {
@@ -89,7 +91,7 @@ class PaymentController extends Controller
         }
         $order->save();
 
-        $transaction = \App\Models\PaymentTransaction::create([
+        $transaction = PaymentTransaction::create([
             'payment_order_id' => $order->id,
             'reff' => $order->reff,
             'status' => $status,
@@ -100,7 +102,7 @@ class PaymentController extends Controller
             'expired_at' => $order->expired_at,
         ]);
 
-        event(new \App\Events\PaymentTransactionCreated($transaction));
+        event(new PaymentTransactionCreated($transaction));
 
         return response()->json([
             'amount' => (string) $order->amount,
