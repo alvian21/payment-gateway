@@ -31,7 +31,7 @@ A modern payment gateway management system built with Laravel, Vue.js, and Inert
 1. Clone the repository:
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/alvian21/payment-gateway.git
     cd payment-gateway
     ```
 
