@@ -49,13 +49,24 @@ A modern payment gateway management system built with Laravel, Vue.js, and Inert
     php artisan key:generate
     ```
 
-4. Run migrations and seeders:
+4. Configure your database in `.env`:
+
+    ```env
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+5. Run migrations and seeders:
 
     ```bash
     php artisan migrate --seed
     ```
 
-5. Run the application:
+6. Run the application:
     ```bash
     npm run dev
     # In other terminals
