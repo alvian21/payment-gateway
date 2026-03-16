@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import { Head, router, Link } from '@inertiajs/vue3';
-import AppLayout from '@/layouts/AppLayout.vue';
-import { dashboard } from '@/routes';
-import type { BreadcrumbItem } from '@/types';
-import { ref, watch } from 'vue';
 import debounce from 'lodash/debounce';
 import { 
     Search, 
@@ -15,6 +11,9 @@ import {
     CreditCard,
     AlertCircle
 } from 'lucide-vue-next';
+import { ref, watch } from 'vue';
+import AppLayout from '@/layouts/AppLayout.vue';
+import type { BreadcrumbItem } from '@/types';
 
 const props = defineProps<{
     payments: any;
@@ -207,7 +206,6 @@ const toggleFlag = (id: number) => {
                                         :is="link.url ? Link : 'span'"
                                         :href="link.url"
                                         preserve-scroll
-                                        v-html="link.label"
                                         :class="[
                                             'relative inline-flex items-center px-4 py-2 text-sm font-medium border first:rounded-l-md last:rounded-r-md transition-colors',
                                             link.active 
@@ -215,7 +213,9 @@ const toggleFlag = (id: number) => {
                                                 : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50 dark:bg-zinc-900 dark:border-zinc-700 dark:text-gray-400 dark:hover:bg-zinc-800',
                                             !link.url && 'opacity-50 cursor-not-allowed bg-gray-50 dark:bg-zinc-800/50'
                                         ]"
-                                    />
+                                    >
+                                        <span v-html="link.label"></span>
+                                    </component>
                                 </template>
                             </nav>
                         </div>

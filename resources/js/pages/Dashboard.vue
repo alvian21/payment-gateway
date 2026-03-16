@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import AppLayout from '@/layouts/AppLayout.vue';
-import { dashboard } from '@/routes';
-import type { BreadcrumbItem } from '@/types';
 import { 
     CreditCard,
     CheckCircle2, 
@@ -10,8 +7,11 @@ import {
     XCircle,
     TrendingUp
 } from 'lucide-vue-next';
+import AppLayout from '@/layouts/AppLayout.vue';
+import { dashboard } from '@/routes';
+import type { BreadcrumbItem } from '@/types';
 
-const props = defineProps<{
+defineProps<{
     stats: {
         total: number;
         paid: number;

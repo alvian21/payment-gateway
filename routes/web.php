@@ -6,7 +6,7 @@ use App\Http\Controllers\PaymentDashboardController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
-});
+})->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [PaymentDashboardController::class, 'index'])->name('dashboard');
