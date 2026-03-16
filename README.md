@@ -58,8 +58,9 @@ A modern payment gateway management system built with Laravel, Vue.js, and Inert
 5. Run the application:
     ```bash
     npm run dev
-    # In another terminal
+    # In other terminals
     php artisan serve
+    php artisan queue:work
     ```
 
 ## Admin Dashboard
